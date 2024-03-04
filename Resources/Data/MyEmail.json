@@ -1,0 +1,56 @@
+[
+    {
+    "id": "recents",
+    "name": "Recents",
+    "data": [
+        {
+            "id": "id1",
+            "name": "John Doe",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "time": "Feb 10 7:30 PM"
+        },
+        
+        {
+            "id": "id2",
+            "name": "Jane Smith",
+            "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "time": "Feb 11 8:45 AM"
+        },
+    ]
+    },
+    
+    {
+    "id": "others",
+    "name": "Others",
+    "data": [
+        {
+            "id": "id3",
+            "name": "Alice Johnson",
+            "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "time": "Feb 12 3:15 PM"
+        },
+        
+        {
+            "id": "id4",
+            "name": "Bob Thompson",
+            "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "time": "Feb 13 9:00 AM"
+        },
+        
+        {
+            "id": "id5",
+            "name": "Emma Brown",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "time": "Feb 14 11:30 PM"
+        },
+        
+        {
+            "id": "id6",
+            "name": "Emma Brown",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "time": "Feb 14 11:30 PM"
+        }
+    ]
+    },
+]
+

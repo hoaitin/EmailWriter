@@ -1,0 +1,148 @@
+[
+    {
+    "id": "output language",
+    "name": "Output language",
+    "icon": "",
+    "data": [
+        {
+            "id": "id1",
+            "name": "English - English",
+            "image": "icon_lag_english",
+           
+        },
+        
+    ]
+    },
+    
+    {
+    "id": "text type",
+    "name": "Text type",
+    "icon": "",
+    "data": [
+        {
+            "id": "id2",
+            "name": "Email",
+            "image": "icon_type_email",
+           
+        },
+        {
+            "id": "id3",
+            "name": "Message",
+            "image": "icon_type_message",
+           
+        },
+        {
+            "id": "id2",
+            "name": "Email",
+            "image": "icon_type_email",
+           
+        },
+        {
+            "id": "id3",
+            "name": "Message",
+            "image": "icon_type_message",
+           
+        },
+    ]
+    },
+    
+    {
+    "id": "text length",
+    "name": "Text length",
+    "icon": "icon_tool_translate",
+    "data": [
+        {
+            "id": "id4",
+            "name": "Short",
+            "image": "icon_length_short",
+        },
+        {
+            "id": "id5",
+            "name": "Medium",
+            "image": "icon_length_medium",
+           
+        },
+        {
+            "id": "id6",
+            "name": "Long",
+            "image": "icon_length_long",
+           
+        },
+       
+    ]
+    },
+    {
+    "id": "writing tone",
+    "name": "Writing tone",
+    "icon": "icon_tool_translate",
+    "data": [
+        {
+            "id": "id7",
+            "name": "Formal",
+            "image": "icon_tone_formal",
+           
+        },
+        {
+            "id": "id8",
+            "name": "Friendly",
+            "image": "icon_tone_friendly",
+           
+        },
+        {
+            "id": "id9",
+            "name": "Professional",
+            "image": "icon_tone_professional",
+           
+        },
+        {
+            "id": "id21",
+            "name": "Professional",
+            "image": "icon_tone_professional",
+           
+        },
+        {
+            "id": "id10",
+            "name": "Brutal",
+            "image": "icon_tone_brutal",
+           
+        },
+        {
+            "id": "id32",
+            "name": "Formal",
+            "image": "icon_tone_formal",
+           
+        },
+        {
+            "id": "id20",
+            "name": "Friendly",
+            "image": "icon_tone_friendly",
+           
+        },
+       
+        {
+            "id": "id22",
+            "name": "Brutal",
+            "image": "icon_tone_brutal",
+           
+        },    ]
+    },
+    {
+    "id": "use emoji",
+    "name": "Use emoji",
+    "icon": "icon_tool_translate",
+    "data": [
+        {
+            "id": "id11",
+            "name": "With emoji",
+            "image": "icon_emoji_with",
+           
+        },
+        {
+            "id": "id12",
+            "name": "No emoji",
+            "image": "icon_emoji_no",
+           
+        },
+    ]
+    },
+]

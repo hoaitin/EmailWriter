@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DC78094F-C481-47B8-A6BE-60F9C3756046"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "699E736E-6286-4DE5-847C-5F9A5562922E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/BaseRequestService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "requestApiWeather()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C36C83C7-6E69-4389-8423-442C70DECDA3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/BaseRequestService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "requestApiWeather()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10D9CFFC-7E3D-4EBD-A861-9793597BE253"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/HomeMain/HomeCategoryCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "handleDoubleTap(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "10D9CFFC-7E3D-4EBD-A861-9793597BE253 - d72d8741aac370de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.HomeCategoryCollectionViewCell.handleDoubleTap(__C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/BaseProjectFigma/Sources/App/Views/HomeMain/HomeCategoryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "223">
+               </Location>
+               <Location
+                  uuid = "10D9CFFC-7E3D-4EBD-A861-9793597BE253 - d72d8741aac370ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.HomeCategoryCollectionViewCell.handleDoubleTap(__C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/BaseProjectFigma/Sources/App/Views/HomeMain/HomeCategoryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "223">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B88E6A0-C0BA-4322-AF4E-B249268685AF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/HomeMain/HomeCategoryCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8B88E6A0-C0BA-4322-AF4E-B249268685AF - 6ec65a7d27debc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.HomeCategoryCollectionViewCell.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/BaseProjectFigma/Sources/App/Views/HomeMain/HomeCategoryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "1476">
+               </Location>
+               <Location
+                  uuid = "8B88E6A0-C0BA-4322-AF4E-B249268685AF - 6ec65a7d27debc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.HomeCategoryCollectionViewCell.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/BaseProjectFigma/Sources/App/Views/HomeMain/HomeCategoryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "1182">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE86D52C-3D88-4C3B-8BED-295CE3277D5F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/HomeMain/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E50DCD1B-4A15-4E26-9FE9-9B586BF842CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/View1Controller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB200CA0-EF8B-40E9-A3E3-79D4F910B5BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "goToViewControllerB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB200CA0-EF8B-40E9-A3E3-79D4F910B5BE - b7fce8dbfac4cfc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "EB200CA0-EF8B-40E9-A3E3-79D4F910B5BE - b7fce8dbfac4cfc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  uuid = "EB200CA0-EF8B-40E9-A3E3-79D4F910B5BE - b7fce8dbfac4cf86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  uuid = "EB200CA0-EF8B-40E9-A3E3-79D4F910B5BE - b7fce8dbfac4cfa7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E103697-1FE0-4A87-9B11-88D021FC8760"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "setupRx()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB40CCF0-32B0-4BEC-8465-848918FE2452"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "setupRx()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AB7E044-F657-4C46-A0EE-56891E9C1AC9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "backViewButton()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2AB7E044-F657-4C46-A0EE-56891E9C1AC9 - 4ca31d2ca345e6f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.backViewButton() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "2AB7E044-F657-4C46-A0EE-56891E9C1AC9 - 4ca31d2ca345e6f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.backViewButton() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "2AB7E044-F657-4C46-A0EE-56891E9C1AC9 - 4ca31d2ca345e6d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.backViewButton() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D446199-FFB7-4D2E-A2B8-FB3CB02737C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "setupRx()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7D446199-FFB7-4D2E-A2B8-FB3CB02737C8 - dddd733c46e8c767"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.setupRx() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "633">
+               </Location>
+               <Location
+                  uuid = "7D446199-FFB7-4D2E-A2B8-FB3CB02737C8 - dddd733c46e8c7b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.setupRx() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "633">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "646470EA-695A-4C56-B18B-90D4D96E1A98"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "setupRx()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "646470EA-695A-4C56-B18B-90D4D96E1A98 - d54d7caf8ece3501"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.setupRx() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "646470EA-695A-4C56-B18B-90D4D96E1A98 - d54d7caf8ece3468"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.setupRx() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "633">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04312CD4-821C-4F17-9028-A7BEE87DE0D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "goToViewControllerB()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17172A59-BED7-469B-9460-6B01E0E9303C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerA.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "goToViewControllerB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "17172A59-BED7-469B-9460-6B01E0E9303C - b7fce8dbfac4cfa7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  uuid = "17172A59-BED7-469B-9460-6B01E0E9303C - b7fce8dbfac4cf86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "202">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2172E782-E098-4E64-89FD-E72AD8495E73"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/App/Views/Test/ViewControllerB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "backViewButton()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2172E782-E098-4E64-89FD-E72AD8495E73 - 4ca31d2ca345e6d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.backViewButton() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "2172E782-E098-4E64-89FD-E72AD8495E73 - 4ca31d2ca345e6b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.backViewButton() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
