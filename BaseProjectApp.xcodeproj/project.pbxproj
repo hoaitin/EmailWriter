@@ -92,8 +92,6 @@
 		C3B65B622B91B8EE0099EDF2 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B65B612B91B8EE0099EDF2 /* ModelManager.swift */; };
 		C3B65B642B91D9CE0099EDF2 /* ValueOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B65B632B91D9CE0099EDF2 /* ValueOption.swift */; };
 		C3B9BF522B50F91400DCA83B /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9BF512B50F91400DCA83B /* CustomActivityIndicator.swift */; };
-		C3B9BF542B51331D00DCA83B /* OpenSans-Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3B9BF532B51331D00DCA83B /* OpenSans-Text.ttf */; };
-		C3B9BF582B513AAD00DCA83B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3B9BF572B513AAD00DCA83B /* OpenSans-SemiBold.ttf */; };
 		D85B2D6E2451CA6C00300F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85B2D6C2451CA6C00300F57 /* LaunchScreen.storyboard */; };
 		D8729C8F2431A2250045F4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2C22B222A8EE6C003526A6 /* Assets.xcassets */; };
 		D88E8CB825812207009864A9 /* Plist in Resources */ = {isa = PBXBuildFile; fileRef = D88E8CB725812207009864A9 /* Plist */; };
@@ -220,8 +218,6 @@
 		C3B65B612B91B8EE0099EDF2 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		C3B65B632B91D9CE0099EDF2 /* ValueOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueOption.swift; sourceTree = "<group>"; };
 		C3B9BF512B50F91400DCA83B /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
-		C3B9BF532B51331D00DCA83B /* OpenSans-Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Text.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Text.ttf"; sourceTree = "<group>"; };
-		C3B9BF572B513AAD00DCA83B /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../../../../../Downloads/Open_Sans (1)/static/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		CAA6B170F25CDAD6DF522015 /* Pods-AIEnglishApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIEnglishApp.debug.xcconfig"; path = "Target Support Files/Pods-AIEnglishApp/Pods-AIEnglishApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D8158C5126106F17005CD0EB /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8158C5226106F17005CD0EB /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -674,8 +670,6 @@
 			isa = PBXGroup;
 			children = (
 				C34BFDD32B63A49000093D20 /* OpenSans-ExtraBold.ttf */,
-				C3B9BF572B513AAD00DCA83B /* OpenSans-SemiBold.ttf */,
-				C3B9BF532B51331D00DCA83B /* OpenSans-Text.ttf */,
 				24031DE72B04718200E2FE53 /* SF-Pro-Text-Heavy.ttf */,
 				249DF8C22AFB8E45008E6F48 /* SF-Pro-Text-Bold.ttf */,
 				249DF8BF2AFB8E44008E6F48 /* SF-Pro-Text-Medium.ttf */,
@@ -772,10 +766,8 @@
 				249DF8C62AFB8E45008E6F48 /* SF-Pro-Text-Bold.ttf in Resources */,
 				D85B2D6E2451CA6C00300F57 /* LaunchScreen.storyboard in Resources */,
 				C305DFFD2B8832260057220F /* test.json in Resources */,
-				C3B9BF542B51331D00DCA83B /* OpenSans-Text.ttf in Resources */,
 				C33002452B8C4913005A57DC /* MyEmail.json in Resources */,
 				249DF8C32AFB8E45008E6F48 /* SF-Pro-Text-Medium.ttf in Resources */,
-				C3B9BF582B513AAD00DCA83B /* OpenSans-SemiBold.ttf in Resources */,
 				249DF8C42AFB8E45008E6F48 /* SF-Pro-Text-Regular.ttf in Resources */,
 				249DF8C52AFB8E45008E6F48 /* SF-Pro-Text-Semibold.ttf in Resources */,
 				D8729C8F2431A2250045F4FF /* Assets.xcassets in Resources */,

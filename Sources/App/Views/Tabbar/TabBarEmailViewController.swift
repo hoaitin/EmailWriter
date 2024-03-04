@@ -1,5 +1,6 @@
-
-
+import Foundation
+import RxSwift
+import SnapKit
 import UIKit
 
 
@@ -72,54 +73,78 @@ class TabBarEmailViewController: UITabBarController {
         
     }
     
-    lazy var writeEmailTab: UINavigationController = {
-        let tabItem = UITabBarItem(title: "Write", image: R.image.tabbar_explore_dark(), selectedImage: UIImage(named: "tabbar_explore_dark"))
-           let viewController = WriteViewController()
-           // Tạo một UINavigationController và đặt WriteViewController làm root view controller của nó
-           let navController = UINavigationController(rootViewController: viewController)
-           
-           // Thiết lập tab bar item cho UINavigationController
-           navController.tabBarItem = tabItem
-        navController.navigationBar.isTranslucent = false
-        navController.navigationBar.barTintColor = .black
-           
-           return navController
-        }()
+    // CODE REVIEW: Check lai code, xai tabbar nhu the nay. Remove nhung doan code k xai
+    lazy var writeEmailTab: UIViewController = {
+        let stylesTabItem = UITabBarItem(title: "Write", image: R.image.tabbar_model_light(), selectedImage: R.image.tabbar_explore_dark()?.withRenderingMode(.alwaysOriginal))
+        let stylesNavTab = WriteViewController()
+        stylesNavTab.tabBarItem = stylesTabItem
+        return stylesNavTab
+    }()
+    
+    lazy var myEmailTab: UIViewController = {
+        let stylesTabItem = UITabBarItem(title: "Write", image: R.image.tabbar_model_light(), selectedImage: R.image.tabbar_explore_dark()?.withRenderingMode(.alwaysOriginal))
+        let stylesNavTab = WriteViewController()
+        stylesNavTab.tabBarItem = stylesTabItem
+        return stylesNavTab
+    }()
+    
+    lazy var setingsTab: UIViewController = {
+        let stylesTabItem = UITabBarItem(title: "Write", image: R.image.tabbar_model_light(), selectedImage: R.image.tabbar_explore_dark()?.withRenderingMode(.alwaysOriginal))
+        let stylesNavTab = WriteViewController()
+        stylesNavTab.tabBarItem = stylesTabItem
+        return stylesNavTab
+    }()
+    
+    
+//    lazy var writeEmailTab: UINavigationController = {
+//        // CODE REVIEW: xai R.imgae., k sai named
+//        let tabItem = UITabBarItem(title: "Write", image: R.image.tabbar_explore_dark(), selectedImage: UIImage(named: "tabbar_explore_dark"))
+//           let viewController = WriteViewController()
+//           // Tạo một UINavigationController và đặt WriteViewController làm root view controller của nó
+//           let navController = UINavigationController(rootViewController: viewController)
+//           
+//           // Thiết lập tab bar item cho UINavigationController
+//           navController.tabBarItem = tabItem
+//        navController.navigationBar.isTranslucent = false
+//        navController.navigationBar.barTintColor = .black
+//           
+//           return navController
+//        }()
     
     @objc func addButtonTapped() {
         let view = LagViewController()
         presentPanModal(view)
     }
     
-    lazy var myEmailTab: UIViewController = {
-        let tabItem = UITabBarItem(title: "My Email", image: UIImage(named: "tabbar_email"), selectedImage: UIImage(named: "tabbar_email"))
-           let viewController = MyEmailViewController()
-           
-           // Tạo một UINavigationController và đặt WriteViewController làm root view controller của nó
-           let navController = UINavigationController(rootViewController: viewController)
-           
-           // Thiết lập tab bar item cho UINavigationController
-           navController.tabBarItem = tabItem
-        navController.navigationBar.isTranslucent = false
-        navController.navigationBar.barTintColor = .black
-           
-           return navController
-    }()
-    
-    lazy var setingsTab: UIViewController = {
-        let tabItem = UITabBarItem(title: "Setings", image: UIImage(named: "tabbar_setting_dark"), selectedImage: UIImage(named: "tabbar_setting_dark"))
-           let viewController = SettingsViewController()
-           
-           // Tạo một UINavigationController và đặt WriteViewController làm root view controller của nó
-           let navController = UINavigationController(rootViewController: viewController)
-           
-           // Thiết lập tab bar item cho UINavigationController
-           navController.tabBarItem = tabItem
-           navController.navigationBar.isTranslucent = false
-           navController.navigationBar.barTintColor = .black
-         
-           return navController
-    }()
+//    lazy var myEmailTab: UIViewController = {
+//        let tabItem = UITabBarItem(title: "My Email", image: UIImage(named: "tabbar_email"), selectedImage: UIImage(named: "tabbar_email"))
+//           let viewController = MyEmailViewController()
+//           
+//           // Tạo một UINavigationController và đặt WriteViewController làm root view controller của nó
+//           let navController = UINavigationController(rootViewController: viewController)
+//           
+//           // Thiết lập tab bar item cho UINavigationController
+//           navController.tabBarItem = tabItem
+//        navController.navigationBar.isTranslucent = false
+//        navController.navigationBar.barTintColor = .black
+//           
+//           return navController
+//    }()
+//    
+//    lazy var setingsTab: UIViewController = {
+//        let tabItem = UITabBarItem(title: "Setings", image: UIImage(named: "tabbar_setting_dark"), selectedImage: UIImage(named: "tabbar_setting_dark"))
+//           let viewController = SettingsViewController()
+//           
+//           // Tạo một UINavigationController và đặt WriteViewController làm root view controller của nó
+//           let navController = UINavigationController(rootViewController: viewController)
+//           
+//           // Thiết lập tab bar item cho UINavigationController
+//           navController.tabBarItem = tabItem
+//           navController.navigationBar.isTranslucent = false
+//           navController.navigationBar.barTintColor = .black
+//         
+//           return navController
+//    }()
     
 //    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
 //            // Handle tab change event here

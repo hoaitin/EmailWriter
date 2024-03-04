@@ -41,7 +41,7 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 108 images.
+  /// This `_R.image` struct is generated, and contains static references to 110 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -315,6 +315,12 @@ struct _R {
     /// Image `robot6`.
     var robot6: RswiftResources.ImageResource { .init(name: "robot6", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `search_dictation`.
+    var search_dictation: RswiftResources.ImageResource { .init(name: "search_dictation", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `search_glyph`.
+    var search_glyph: RswiftResources.ImageResource { .init(name: "search_glyph", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `splash`.
     var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -376,15 +382,9 @@ struct _R {
     let comAppleSecurityNetworkClient: Bool = true
   }
 
-  /// This `_R.font` struct is generated, and contains static references to 7 fonts.
+  /// This `_R.font` struct is generated, and contains static references to 5 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
-
-    /// Font `OpenSans-Regular`.
-    var openSansRegular: RswiftResources.FontResource { .init(name: "OpenSans-Regular", bundle: bundle, filename: "OpenSans-Text.ttf") }
-
-    /// Font `OpenSans-SemiBold`.
-    var openSansSemiBold: RswiftResources.FontResource { .init(name: "OpenSans-SemiBold", bundle: bundle, filename: "OpenSans-SemiBold.ttf") }
 
     /// Font `SFProText-Bold`.
     var sfProTextBold: RswiftResources.FontResource { .init(name: "SFProText-Bold", bundle: bundle, filename: "SF-Pro-Text-Bold.ttf") }
@@ -402,7 +402,7 @@ struct _R {
     var sfProTextSemibold: RswiftResources.FontResource { .init(name: "SFProText-Semibold", bundle: bundle, filename: "SF-Pro-Text-Semibold.ttf") }
 
     func makeIterator() -> IndexingIterator<[RswiftResources.FontResource]> {
-      [openSansRegular, openSansSemiBold, sfProTextBold, sfProTextHeavy, sfProTextMedium, sfProTextRegular, sfProTextSemibold].makeIterator()
+      [sfProTextBold, sfProTextHeavy, sfProTextMedium, sfProTextRegular, sfProTextSemibold].makeIterator()
     }
     func validate() throws {
       for font in self {
@@ -411,7 +411,7 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 15 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 16 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
@@ -453,6 +453,9 @@ struct _R {
 
     /// Resource file `categories.json`.
     var categoriesJson: RswiftResources.FileResource { .init(name: "categories", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `country.json`.
+    var countryJson: RswiftResources.FileResource { .init(name: "country", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `test.json`.
     var testJson: RswiftResources.FileResource { .init(name: "test", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }

@@ -87,7 +87,7 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
         writeButton.setImage(R.image.icon_feature_improve(), for: .normal)
         writeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         writeButton.backgroundColor = ConfigColor.green_main_app
-        writeButton.addTarget(self, action: #selector(handleNextViewEmailResult), for: .touchUpInside)
+//        writeButton.addTarget(self, action: #selector(handleNextViewEmailResult), for: .touchUpInside)
         
         addTabbarHeader()
         view.addSubview(segmentedControl)
@@ -244,6 +244,14 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
     
     override func setupRx() {
         super.setupRx()
+        
+        writeButton.rx.tap
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { owner, _ in
+                owner.navigationController?.pushViewController(EmailResultViewController(), animated: true)
+            })
+            .disposed(by: disposeBag)
         
         modelManager.typeBehaviorRelayPublisher
             .withUnretained(self)

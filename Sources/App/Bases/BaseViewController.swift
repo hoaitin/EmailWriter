@@ -10,11 +10,10 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = ConfigColor.backgroundView
+        self.navigationController?.navigationBar.isHidden = true
         setupViews()
         setupRx()
-        
-        view.backgroundColor = ConfigColor.backgroundView
-        navigationController?.navigationBar.isHidden = true
     }
     
     @objc dynamic func setupViews() {
