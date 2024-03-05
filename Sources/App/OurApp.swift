@@ -1,16 +1,14 @@
 //
-//  About.swift
+//  OurApp.swift
 //  BaseProjectApp
 //
-//  Created by Tin Nguyen on 27/02/2024.
+//  Created by Tin Nguyen on 05/03/2024.
 //  Copyright © 2024 Vulcan Labs. All rights reserved.
 //
 
-
 import Foundation
-class About: Codable {
+class OurApp: Codable {
     let id: String
     let name: String
-    let icon: String
-    let link: String
+    let thumb: String
 }

@@ -11,7 +11,7 @@ import UIKit
 import PanModal
 import GrowingTextView
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, GrowingTextViewDelegate, UITextFieldDelegate {
     private lazy var dragIndicator = UIView()
     private lazy var headerLabel = UILabel()
     private lazy var nameInputView = FormInputView()
@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController {
     private lazy var yourInterestsLabel = UILabel()
     private lazy var yourInterestsView = UIView()
     private lazy var yourInterestsText = GrowingTextView()
-    
     
     private lazy var writeButtonView = UIView()
     private lazy var iconTranslateWriteButton = UIImageView()
@@ -48,12 +47,22 @@ class ProfileViewController: UIViewController {
         headerLabel.font = UIFont.appFont(weight: .medium, size: 16)
         
         nameInputView.setData(name: "Name", inputPlaceholder: "Liam")
+        nameInputView.inputTextField.delegate = self
+        nameInputView.inputTextField.tag = 1
         
         genderInputView.setData(name: "Gender", inputPlaceholder: "Male / Female / etc")
+        genderInputView.inputTextField.delegate = self
+        genderInputView.inputTextField.tag = 2
         
         ageInputView.setData(name: "Age", inputPlaceholder: "30")
+        ageInputView.inputTextField.keyboardType = .numberPad
+//        ageInputView.inputTextField.becomeFirstResponder()
+        ageInputView.inputTextField.delegate = self
+        ageInputView.inputTextField.tag = 3
         
         roleInputView.setData(name: "Profession / Role", inputPlaceholder: "CEO / Student / Developer")
+        roleInputView.inputTextField.delegate = self
+        roleInputView.inputTextField.tag = 4
         
         writeButton.backgroundColor = ConfigColor.green_main_app
         writeButton.layer.cornerRadius = 25
@@ -81,6 +90,7 @@ class ProfileViewController: UIViewController {
         yourInterestsText.textColor = .white
         yourInterestsText.font = UIFont.appFont(weight: .regular, size: 14)
         yourInterestsText.autocorrectionType = .no
+        yourInterestsText.delegate = self
         
     }
         
@@ -185,8 +195,61 @@ class ProfileViewController: UIViewController {
             $0.bottom.top.equalToSuperview()
         }
         
-       
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+   
+        let maxLength: Int
+              switch textField.tag {
+              case 1:
+                  maxLength = 30
+              case 2:
+                  maxLength = 10
+              case 3:
+                  maxLength = 3
+
+              case 4:
+                  maxLength = 20
+              default:
+                  maxLength = 30
+              }
         
+         guard let text = textField.text else { return true }
+         let newLength = text.count + string.count - range.length
+         if newLength <= maxLength { // Đặt maxLength cho textField này là 30
+             return validateInput( text + string, maxLength: maxLength, acceptOnlyNumbers: textField.tag == 3 ? true : false, maxNumber: 150)
+          }
+        
+        return false
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+           guard let currentText = textView.text else { return true }
+           let newText = (currentText as NSString).replacingCharacters(in: range, with: text)
+           if newText.count <= 150 {
+               return true
+           } else {
+               let trimmedText = String(newText.prefix(150))
+
+               textView.text = trimmedText
+               return false
+           }
+       }
+
+    
+    func validateInput(_ text: String, maxLength: Int, acceptOnlyNumbers: Bool, maxNumber: Int) -> Bool {
+    
+        guard text.count <= maxLength else {
+            return false
+        }
+        
+        if acceptOnlyNumbers {
+            guard let number = Int(text) else {
+                return false
+            }
+            return number <= maxNumber
+        }
+        return true
     }
     
 }

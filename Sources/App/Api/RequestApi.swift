@@ -73,7 +73,46 @@ class RequestApi{
             return nil
         }
     }
+    
+    func getFileJsonAbout() -> [About]? {
+        guard let path = Bundle.main.path(forResource: "abouts", ofType: "json") else {
+            // Không tìm thấy tệp "emails.json" trong bundle của ứng dụng
+            print("Error: Could not find file 'json'")
+            return nil
+        }
 
+        do {
+            let url = URL(fileURLWithPath: path)
+            let jsonData = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let data = try decoder.decode([About].self, from: jsonData)
+            return data
+        } catch {
+            // Xử lý lỗi một cách nghiêm túc hơn
+            print("Error decoding JSON: \(error)")
+            return nil
+        }
+    }
+    
+    func getFileJsonOurApp() -> [OurApp]? {
+        guard let path = Bundle.main.path(forResource: "our_app", ofType: "json") else {
+            // Không tìm thấy tệp "emails.json" trong bundle của ứng dụng
+            print("Error: Could not find file 'json'")
+            return nil
+        }
+
+        do {
+            let url = URL(fileURLWithPath: path)
+            let jsonData = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let data = try decoder.decode([OurApp].self, from: jsonData)
+            return data
+        } catch {
+            // Xử lý lỗi một cách nghiêm túc hơn
+            print("Error decoding JSON: \(error)")
+            return nil
+        }
+    }
     
     
 }

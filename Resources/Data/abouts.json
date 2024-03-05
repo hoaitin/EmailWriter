@@ -1,0 +1,38 @@
+[
+   {
+     "id" : "about_1",
+     "name": "Share Anime Wallpaper",
+     "icon": "icon_setting_share",
+     "link": ""
+   },
+   {
+     "id" : "about_2",
+     "name": "Term Of Use",
+     "icon": "icon_setting_term",
+     "link": "https://sites.google.com/tinyleo.com/terms-of-use"
+   },
+   {
+     "id" : "about_3",
+     "name": "Privacy & Security",
+     "icon": "icon_setting_privacy",
+     "link": "https://sites.google.com/tinyleo.com/privacy-policy"
+   },
+   {
+       "id" : "about_4",
+     "name": "Contact",
+     "icon": "icon_setting_contact",
+     "link": "https://sites.google.com/tinyleo.com/contact-us"
+   },
+   {
+     "id" : "about_5",
+     "name": "Email Us",
+     "icon": "icon_setting_email",
+     "link": ""
+   },
+   {
+    "id" : "about_6",
+     "name": "About Us",
+     "icon": "icon_setting_about",
+     "link": "https://sites.google.com/tinyleo.com/about-us"
+   }
+ ]

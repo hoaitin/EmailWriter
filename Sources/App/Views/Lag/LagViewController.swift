@@ -13,6 +13,7 @@ import UIKit
 import PanModal
 import GrowingTextView
 import Speech
+import RxSwift
 
 class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRecognitionDelegate{
     private lazy var dragIndicator = UIView()
@@ -26,15 +27,16 @@ class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRe
     private var dataCountries:[Country] = []
     private var dictationButton = UIButton()
     private let speechManager = SpeechRecognitionManager()
+ 
    
     override func viewDidLoad() {
         
         setUpViews()
         setUpConstraints()
         setData()
-        
+      
     }
-        
+    
     func setUpViews() {
         view.backgroundColor = .black
         
@@ -159,6 +161,9 @@ class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRe
     func didReceiveTranscription(transcription: String) {
         searchTextField.text = transcription
     }
+    
+ 
+    
 }
 
 
@@ -205,6 +210,10 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         selectedIndexPath = indexPath
+    }
+    
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
     
 }
