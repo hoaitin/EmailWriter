@@ -46,7 +46,7 @@ class SplashViewController: UIViewController{
     func nextViewByHasLaunchedBefore(){
         let hasLaunchedBefore = UserDefaults.standard.bool(forKey: ConfigKey.hasLaunchedBefore)
         if hasLaunchedBefore {
-            let tabBarController = TabBarEmailViewController()
+            let tabBarController = TabBarViewController()
             navigationController?.pushViewController(tabBarController, animated: true)
             
         }else {

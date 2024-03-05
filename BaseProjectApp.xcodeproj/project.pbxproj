@@ -78,6 +78,8 @@
 		C3A3765E2B957B1000113AF9 /* AlignLeftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3765D2B957B1000113AF9 /* AlignLeftFlowLayout.swift */; };
 		C3A376612B95A94900113AF9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A376602B95A94900113AF9 /* BaseViewController.swift */; };
 		C3A376632B95AA0D00113AF9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A376622B95AA0D00113AF9 /* TestViewController.swift */; };
+		C3A376672B95B6E900113AF9 /* TabbarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A376662B95B6E900113AF9 /* TabbarHeaderView.swift */; };
+		C3A376692B95E28600113AF9 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = C3A376682B95E28600113AF9 /* settings.json */; };
 		C3B65B442B907CBC0099EDF2 /* EmailResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B65B432B907CBC0099EDF2 /* EmailResultViewController.swift */; };
 		C3B65B482B908E2A0099EDF2 /* LagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B65B472B908E2A0099EDF2 /* LagViewController.swift */; };
 		C3B65B4A2B9091E70099EDF2 /* LagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B65B492B9091E70099EDF2 /* LagTableViewCell.swift */; };
@@ -204,6 +206,8 @@
 		C3A3765D2B957B1000113AF9 /* AlignLeftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignLeftFlowLayout.swift; sourceTree = "<group>"; };
 		C3A376602B95A94900113AF9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C3A376622B95AA0D00113AF9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C3A376662B95B6E900113AF9 /* TabbarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarHeaderView.swift; sourceTree = "<group>"; };
+		C3A376682B95E28600113AF9 /* settings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 		C3B65B432B907CBC0099EDF2 /* EmailResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResultViewController.swift; sourceTree = "<group>"; };
 		C3B65B472B908E2A0099EDF2 /* LagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagViewController.swift; sourceTree = "<group>"; };
 		C3B65B492B9091E70099EDF2 /* LagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagTableViewCell.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				C305DFFC2B8832260057220F /* test.json */,
 				C33002442B8C4913005A57DC /* MyEmail.json */,
 				C330024B2B8C6C72005A57DC /* typeOptions.json */,
+				C3A376682B95E28600113AF9 /* settings.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				C34ABFE42B47F23800C8D7E5 /* ContinueButton.swift */,
 				C33002672B8DF188005A57DC /* NavHeader.swift */,
 				C3B9BF512B50F91400DCA83B /* CustomActivityIndicator.swift */,
+				C3A376662B95B6E900113AF9 /* TabbarHeaderView.swift */,
 				C33002532B8CDB49005A57DC /* ToolKeyBoardView.swift */,
 				C330025F2B8DD6C2005A57DC /* UserView.swift */,
 			);
@@ -774,6 +780,7 @@
 				C3B65B552B918D390099EDF2 /* country.json in Resources */,
 				2439149B296405A00038474C /* Launch Screen.storyboard in Resources */,
 				C330024C2B8C6C72005A57DC /* typeOptions.json in Resources */,
+				C3A376692B95E28600113AF9 /* settings.json in Resources */,
 				C34BFDC82B6355B800093D20 /* app_icon_1.png in Resources */,
 				C34BFDC62B6354A100093D20 /* app_icon_main.jpg in Resources */,
 				C305DFCB2B82EDA20057220F /* categories.json in Resources */,
@@ -883,6 +890,7 @@
 				C305DFE22B848F5E0057220F /* TabBarEmailViewController.swift in Sources */,
 				24ECFB8B290294DA008F7DA5 /* R.generated.swift in Sources */,
 				C33002682B8DF188005A57DC /* NavHeader.swift in Sources */,
+				C3A376672B95B6E900113AF9 /* TabbarHeaderView.swift in Sources */,
 				C34BFDCC2B6367E500093D20 /* Configs.swift in Sources */,
 				C330024E2B8C718D005A57DC /* TypeOptions.swift in Sources */,
 				C33002752B8E245B005A57DC /* DSViewController.swift in Sources */,

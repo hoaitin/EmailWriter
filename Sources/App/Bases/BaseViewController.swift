@@ -1,16 +1,16 @@
 import SnapKit
 import RxSwift
 import UIKit
+import PanModal
 
 class BaseViewController: UIViewController {
-    
-    public lazy var headerView = UIView()
+    public lazy var headerView = TabbarHeaderView()
     
     let dispose = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ConfigColor.backgroundView
+        view.backgroundColor = .black
         self.navigationController?.navigationBar.isHidden = true
         setupViews()
         setupRx()
@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
     }
     
     func addTabbarHeader() {
-        headerView.backgroundColor = .orange
+        headerView.rightButton.addTarget(self, action: #selector(nextUpGrade), for: .touchUpInside)
         
         view.addSubview(headerView)
         
@@ -34,5 +34,10 @@ class BaseViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(50)
         }
+    }
+    
+    @objc func nextUpGrade(){
+        let viewDS = DSViewController()
+        present(viewDS, animated: true)
     }
 }

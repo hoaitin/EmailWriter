@@ -154,30 +154,34 @@ extension OptionsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let previousSelectedIndexPath = selectedIndexPath {
-            if let previousSelectedCell = collectionView.cellForItem(at: previousSelectedIndexPath) as?
-                OptionCollectionViewCell {
-                if(!previousSelectedCell.isSelected){
-                  previousSelectedCell.hiddenAction()
-                }
-              
+        // Huỷ bỏ lựa chọn trước đó nếu có
+        if let previousSelectedIndexPath = selectedIndexPath,
+           let previousSelectedCell = collectionView.cellForItem(at: previousSelectedIndexPath) as? OptionCollectionViewCell {
+            if !previousSelectedCell.isSelected {
+                previousSelectedCell.hiddenAction()
             }
         }
-    
+
+        // Xử lý lựa chọn mới
         if let newSelectedCell = collectionView.cellForItem(at: indexPath) as? OptionCollectionViewCell {
             if newSelectedCell.isSelected {
-                let option  = options[indexPath.item]
+                let option = options[indexPath.item]
                 self.option = option
                 if let index = valueOptions.firstIndex(where: { $0.id == typeOption?.id }) {
                     self.valueOptions[index].option = option
                     modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
+                    if let jsonData = try? JSONEncoder().encode(valueOptions),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        // Lưu JSON dưới dạng chuỗi trong UserDefaults
+                        UserDefaults.standard.set(jsonString, forKey: ConfigKey.typeOptions)
+                    }
                 }
-                
                 newSelectedCell.setAction()
             }
         }
-      
+
         selectedIndexPath = indexPath
+
     }
    
     
