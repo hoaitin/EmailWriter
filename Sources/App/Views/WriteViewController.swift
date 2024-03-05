@@ -71,6 +71,8 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
         writingOptionView.backgroundColor = ConfigColor.gray_tab
         writingOptionView.layer.cornerRadius = 20
         writingOptionView.selectTypeButton.addTarget(self, action: #selector(handleViewOptions), for: .touchUpInside)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        writingOptionView.addGestureRecognizer(tapGesture)
       
         cameraButton.setImage(R.image.icon_camera(), for: .normal)
         cameraButton.backgroundColor = ConfigColor.gray_tab
@@ -132,7 +134,6 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
             $0.bottom.equalToSuperview()
         }
 
-        
         writingOptionView.snp.makeConstraints{
             $0.bottom.equalTo(writeButton.snp.top).inset(-25)
             $0.leading.trailing.equalToSuperview().inset(16)
@@ -191,6 +192,12 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
         }
 
     }
+                                                
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let view = TypeOptionsViewController()
+        modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
+        presentPanModal(view)
+    }
     
     @objc func keyboardWillShow(notification: NSNotification) {
          if let userInfo = notification.userInfo,
@@ -222,23 +229,24 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
          }
      }
     
-    func textViewDidChange(_ textView: UITextView) {
-         
-           
-           if let text = textView.text {
-               if text.count > maximumCharacterCount {
-                 
-                   let trimmedText = String(text.prefix(maximumCharacterCount))
-                 
-                   textView.text = trimmedText
-                  
-               }else {
-                   numberCharLabel.text = "\(text.count)/\(maximumCharacterCount)"
-               }
-               
-               closeButton.isHidden = text.count == 0 ? true : false
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+           guard let currentText = textView.text else { return true }
+           let newText = (currentText as NSString).replacingCharacters(in: range, with: text)
+           if newText.count <= maximumCharacterCount {
+               numberCharLabel.text = "\(newText.count)/\(maximumCharacterCount)"
+               return true
+           } else {
+             
+               let trimmedText = String(newText.prefix(maximumCharacterCount))
+               numberCharLabel.text = "\(trimmedText.count)/\(maximumCharacterCount)"
+               textView.text = trimmedText
+               return false
            }
+          closeButton.isHidden = text.count == 0 ? true : false
        }
+    
+    
     
     @objc func handleClearText(){
         textView.text = ""

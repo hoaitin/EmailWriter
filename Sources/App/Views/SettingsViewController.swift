@@ -11,17 +11,8 @@ import StoreKit
 
 class SettingsViewController: BaseViewController, SKStoreProductViewControllerDelegate{
     private lazy var settingTableView = UITableView(frame: .zero, style: .grouped)
-
-    private let abouts:[About] = [
-        About(name: "Share Anime Wallpaper",icon: "icon_setting_share" , link: ""),
-        About(name: "Term Of Use", icon: "icon_setting_term" ,link: "https://sites.google.com/tinyleo.com/terms-of-use"),
-        About(name: "Privacy & Security",icon: "icon_setting_privacy" , link: "https://sites.google.com/tinyleo.com/privacy-policy"),
-        About(name: "Contact", icon: "icon_setting_contact" ,link: "https://sites.google.com/tinyleo.com/contact-us"),
-        About(name: "Email Us",icon: "icon_setting_email" , link: ""),
-        About(name: "About Us", icon: "icon_setting_about" ,link: "https://sites.google.com/tinyleo.com/about-us")
-    ]
-    
-  
+    private var abouts:[About] = []
+    private var ourApps:[OurApp] = []
    //as
     override func setupViews() {
         super.setupViews()
@@ -48,11 +39,20 @@ class SettingsViewController: BaseViewController, SKStoreProductViewControllerDe
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
+        
+        setData()
     }
     
+    func setData(){
+        if let abouts = RequestApi.share.getFileJsonAbout() ,
+           let ourApps = RequestApi.share.getFileJsonOurApp() {
+            self.abouts = abouts
+            self.ourApps = ourApps
+            settingTableView.reloadData()
+        }
+        
+    }
    
-    
-
 
 }
 
@@ -67,7 +67,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
            if section == 0 {
                return 2
            } else if section == 1 {
-               return 4
+               return ourApps.count
            }
     
            return abouts.count
@@ -99,8 +99,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
                guard let cell = tableView.dequeueReusableCell(withIdentifier: OurAppItemVIewCell.id , for: indexPath) as? OurAppItemVIewCell else {
                    return .init()
                }
+               
+               let ourApp = ourApps[indexPath.row]
                               
-               cell.setData(icon: "icon_app_test", text: "AI Grammar Check for English")
+               cell.setData(icon: ourApp.thumb, text: ourApp.thumb)
                return cell
            }
            
@@ -122,7 +124,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             if row == 0 {
                
-                
             }else {
                 let view = ListLogoViewController()
                 navigationController?.pushViewController(view, animated: true)
@@ -131,8 +132,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }else if section == 1 {
             let vc = SKStoreProductViewController()
             vc.delegate = self // Bạn cần gán delegate để bắt sự kiện khi người dùng đóng cửa sổ App Store.
-
-            let parameters = [SKStoreProductParameterITunesItemIdentifier: "6471563037"]
+            let ourApp = ourApps[row]
+            let parameters = [SKStoreProductParameterITunesItemIdentifier: ourApp.id]
             vc.loadProduct(withParameters: parameters) { [weak self] (success, error) in
                 if !success {
                     print("Error loading product: \(error?.localizedDescription ?? "Unknown error")")

@@ -9,6 +9,7 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 import RxSwift
+import PanModal
 
 class OptionsTableViewCell: UITableViewCell {
     static let id = "OptionsTableViewCell"
@@ -20,6 +21,7 @@ class OptionsTableViewCell: UITableViewCell {
     var options: [Option] = []
     var option: Option?
     var valueOptions: [ValueOption] = []
+    var delegate: CellDelegate?
     private var selectedIndexPath: IndexPath?
     
     let modelManager = ModelManagerImpl.shared
@@ -70,7 +72,6 @@ class OptionsTableViewCell: UITableViewCell {
         self.optionsCollectionView.showsHorizontalScrollIndicator = false
         self.optionsCollectionView.dataSource = self
         self.optionsCollectionView.delegate = self
-        
     }
     
     func setUpConstraints(){
@@ -122,13 +123,10 @@ class OptionsTableViewCell: UITableViewCell {
 
                 }
                
-
             })
             .disposed(by: disposeBag)
-        
     }
     
-   
 }
 
 extension OptionsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -154,33 +152,40 @@ extension OptionsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Huỷ bỏ lựa chọn trước đó nếu có
-        if let previousSelectedIndexPath = selectedIndexPath,
-           let previousSelectedCell = collectionView.cellForItem(at: previousSelectedIndexPath) as? OptionCollectionViewCell {
-            if !previousSelectedCell.isSelected {
-                previousSelectedCell.hiddenAction()
-            }
-        }
-
-        // Xử lý lựa chọn mới
-        if let newSelectedCell = collectionView.cellForItem(at: indexPath) as? OptionCollectionViewCell {
-            if newSelectedCell.isSelected {
-                let option = options[indexPath.item]
-                self.option = option
-                if let index = valueOptions.firstIndex(where: { $0.id == typeOption?.id }) {
-                    self.valueOptions[index].option = option
-                    modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
-                    if let jsonData = try? JSONEncoder().encode(valueOptions),
-                       let jsonString = String(data: jsonData, encoding: .utf8) {
-                        // Lưu JSON dưới dạng chuỗi trong UserDefaults
-                        UserDefaults.standard.set(jsonString, forKey: ConfigKey.typeOptions)
-                    }
+        if typeOption?.id == "output language"  {
+             delegate?.presentPanModal()
+            
+        }else {
+            if let previousSelectedIndexPath = selectedIndexPath,
+               let previousSelectedCell = collectionView.cellForItem(at: previousSelectedIndexPath) as? OptionCollectionViewCell {
+                if !previousSelectedCell.isSelected {
+                    previousSelectedCell.hiddenAction()
                 }
-                newSelectedCell.setAction()
             }
-        }
 
-        selectedIndexPath = indexPath
+            // Xử lý lựa chọn mới
+            if let newSelectedCell = collectionView.cellForItem(at: indexPath) as? OptionCollectionViewCell {
+                if newSelectedCell.isSelected {
+                    let option = options[indexPath.item]
+                    self.option = option
+                    if let index = valueOptions.firstIndex(where: { $0.id == typeOption?.id }) {
+                        self.valueOptions[index].option = option
+                        modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
+                        if let jsonData = try? JSONEncoder().encode(valueOptions),
+                           let jsonString = String(data: jsonData, encoding: .utf8) {
+                            // Lưu JSON dưới dạng chuỗi trong UserDefaults
+                            UserDefaults.standard.set(jsonString, forKey: ConfigKey.typeOptions)
+                        }
+                    }
+                    newSelectedCell.setAction()
+                }
+            }
+
+            selectedIndexPath = indexPath
+        }
+        
+        // Huỷ bỏ lựa chọn trước đó nếu có
+       
 
     }
    

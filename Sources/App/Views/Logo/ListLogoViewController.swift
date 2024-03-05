@@ -96,7 +96,7 @@ class ListLogoViewController: UIViewController {
         
         logoCollectionView.snp.makeConstraints{
             $0.top.equalTo(navHeaderView.snp.bottom).offset(10)
-            $0.trailing.leading.equalToSuperview()
+            $0.trailing.leading.equalToSuperview().inset(16)
             $0.bottom.equalTo(changeIconButton.snp.top).offset(-20)
         }
         
@@ -138,7 +138,7 @@ extension ListLogoViewController: UICollectionViewDelegate, UICollectionViewData
         self.logoCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         self.logoCollectionView.register(LogoCollectionViewCell.self, forCellWithReuseIdentifier: LogoCollectionViewCell.id)
         self.logoCollectionView.showsHorizontalScrollIndicator = false
-        self.logoCollectionView.backgroundColor =  ConfigColor.main_bg
+        self.logoCollectionView.backgroundColor =  .black
         self.logoCollectionView.dataSource = self
         self.logoCollectionView.delegate = self
         if let flowLayout = self.logoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {

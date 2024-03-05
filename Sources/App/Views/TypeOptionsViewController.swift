@@ -13,7 +13,7 @@ import SnapKit
 import StoreKit
 import PanModal
 
-class TypeOptionsViewController: UIViewController {
+class TypeOptionsViewController: UIViewController, CellDelegate {
     private lazy var dragIndicator = UIView()
     private lazy var headerLabel = UILabel()
     private lazy var iconUserImage = UIImageView()
@@ -135,6 +135,11 @@ class TypeOptionsViewController: UIViewController {
         let view = ProfileViewController()
         presentPanModal(view)
     }
+    
+    func presentPanModal() {
+        let countryView = LagViewController()
+        presentPanModal(countryView)
+    }
  
     
         
@@ -181,6 +186,7 @@ extension TypeOptionsViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: OptionsTableViewCell.id, for: indexPath) as? OptionsTableViewCell else {
             return .init()
         }
+        cell.delegate = self
         cell.setData(typeOption: typeOptions[indexPath.row] )
         return cell
         

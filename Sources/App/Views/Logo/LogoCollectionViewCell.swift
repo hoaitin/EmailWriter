@@ -15,7 +15,6 @@ class LogoCollectionViewCell: UICollectionViewCell {
     private lazy var logoImage = UIImageView()
     
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -54,9 +53,8 @@ class LogoCollectionViewCell: UICollectionViewCell {
     }
     
     func setAction(){
-        let gradient = UiltFormat.share.gradientImage(bounds: CGRect(x: 0, y: 0, width: 100, height: 100), colors: [ConfigColor.colorContinueButtonStart, ConfigColor.colorBorderButtonEnd])
         logoImage.layer.borderWidth = 4
-        logoImage.layer.borderColor = UIColor(patternImage: gradient).cgColor
+        logoImage.layer.borderColor = UIColor.white.cgColor
         
     }
     
