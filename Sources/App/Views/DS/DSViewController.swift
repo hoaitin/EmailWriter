@@ -136,18 +136,18 @@ class DSViewController:UIViewController {
             $0.top.equalTo(optionYearly.snp.bottom)
             $0.height.equalTo(77)
         }
-        
-    
+
     }
+    
     
     @objc func handleCloseView(){
         let hasLaunchedBefore = userDeffaults.bool(forKey: ConfigKey.hasLaunchedBefore)
 
         if hasLaunchedBefore {
-            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         }else {
             userDeffaults.setValue(true, forKey: ConfigKey.hasLaunchedBefore)
-            let tabbar = TabBarEmailViewController()
+            let tabbar = TabBarViewController()
             navigationController?.pushViewController(tabbar, animated: true)
         }
         

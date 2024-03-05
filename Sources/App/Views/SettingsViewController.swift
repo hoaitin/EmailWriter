@@ -9,7 +9,7 @@ import Speech
 import SafariServices
 import StoreKit
 
-class SettingsViewController: UIViewController, SKStoreProductViewControllerDelegate{
+class SettingsViewController: BaseViewController, SKStoreProductViewControllerDelegate{
     private lazy var settingTableView = UITableView(frame: .zero, style: .grouped)
 
     private let abouts:[About] = [
@@ -23,17 +23,9 @@ class SettingsViewController: UIViewController, SKStoreProductViewControllerDele
     
   
    //as
-    override func viewDidLoad() {
-      
-               
-        setUpViews()
-        setUpConstraints()
-               
-       
-    }
-    
-    func setUpViews() {
-        view.backgroundColor = .black
+    override func setupViews() {
+        super.setupViews()
+        // Mark: setupViews
         
         settingTableView.backgroundColor = .black
         settingTableView.separatorStyle = .none
@@ -45,19 +37,20 @@ class SettingsViewController: UIViewController, SKStoreProductViewControllerDele
         settingTableView.register(ProfileViewTableViewCell.self, forCellReuseIdentifier: ProfileViewTableViewCell.id)
         settingTableView.dataSource = self
         settingTableView.delegate = self
-       
-    }
-    
- 
-    func setUpConstraints() {
+        addTabbarHeader()
+        
+        // Mark: setConstraints
+        
         view.addSubview(settingTableView)
         
         settingTableView.snp.makeConstraints{
+            $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.top.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
-        
     }
+    
+   
     
 
 

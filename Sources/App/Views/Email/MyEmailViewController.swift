@@ -10,36 +10,39 @@ import UIKit
 import SnapKit
 import CoreLocation
 
-class MyEmailViewController: UIViewController , UIPopoverPresentationControllerDelegate{
+class MyEmailViewController: BaseViewController , UIPopoverPresentationControllerDelegate{
     private lazy var recentsTable = UITableView(frame: .zero, style: .grouped)
     private var emailSection:[EmailSection] = []
     
-    override func viewDidLoad() {
-      
-        setUpViews()
-        setUpConstraints()
-        getData()
-    }
-    
-    func setUpViews() {
-        view.backgroundColor = .black
+    override func setupViews() {
+        super.setupViews()
+        // Mark: setupViews
+        addTabbarHeader()
+        self.recentsTable.backgroundColor = .black
+        self.recentsTable.separatorStyle = .none
+        self.recentsTable.tableHeaderView = nil
+        self.recentsTable.sectionHeaderTopPadding = 0
+        self.recentsTable.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        self.recentsTable.register(EmailCollectionViewCell.self, forCellReuseIdentifier: EmailCollectionViewCell.id)
+        self.recentsTable.dataSource = self
+        self.recentsTable.delegate = self
         
-        setTableView()
-        
-    }
-    
-    func setUpConstraints() {
+        // Mark: setupContraints
         view.addSubview(recentsTable)
 
         recentsTable.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(10)
+            $0.top.equalTo(headerView.snp.bottom)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.bottom.equalToSuperview()
         }
         
+        getData()
+        
+        
     }
     
+
     func getData(){
         if let emails = RequestApi.share.getFileJsonEmail() {
             self.emailSection =  emails
@@ -71,18 +74,6 @@ class MyEmailViewController: UIViewController , UIPopoverPresentationControllerD
 
 extension MyEmailViewController: UITableViewDelegate, UITableViewDataSource{
     
-    func setTableView(){
-        self.recentsTable.backgroundColor = .black
-        self.recentsTable.separatorStyle = .none
-        self.recentsTable.tableHeaderView = nil
-        self.recentsTable.sectionHeaderTopPadding = 0
-        self.recentsTable.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
-        self.recentsTable.register(EmailCollectionViewCell.self, forCellReuseIdentifier: EmailCollectionViewCell.id)
-        self.recentsTable.dataSource = self
-        self.recentsTable.delegate = self
-      
-      
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return emailSection.count

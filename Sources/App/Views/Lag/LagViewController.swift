@@ -12,8 +12,9 @@ import Foundation
 import UIKit
 import PanModal
 import GrowingTextView
+import Speech
 
-class LagViewController: UIViewController {
+class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRecognitionDelegate{
     private lazy var dragIndicator = UIView()
     private lazy var headerLabel = UILabel()
     private lazy var contentSearchView = UIView()
@@ -22,6 +23,9 @@ class LagViewController: UIViewController {
     private var selectedIndexPath: IndexPath?
     private var countries:[Country] = []
     private var country:Country?
+    private var dataCountries:[Country] = []
+    private var dictationButton = UIButton()
+    private let speechManager = SpeechRecognitionManager()
    
     override func viewDidLoad() {
         
@@ -49,6 +53,7 @@ class LagViewController: UIViewController {
         searchTextField.textColor = .white
         let attributedPlaceholder = NSAttributedString(string:  "Search", attributes: [NSAttributedString.Key.foregroundColor: ConfigColor.gray_text_app])
         searchTextField.attributedPlaceholder = attributedPlaceholder
+        searchTextField.addTarget(self, action: #selector(onChangeSearch(_: )), for: .editingChanged)
         
         let leftImageView = UIImageView(image: UIImage(named: "search_glyph"))
         leftImageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
@@ -56,10 +61,10 @@ class LagViewController: UIViewController {
         searchTextField.leftView = leftImageView
         searchTextField.leftViewMode = .always
         
-        let rightImageView = UIImageView(image: UIImage(named: "search_dictation"))
-        rightImageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        rightImageView.contentMode = .scaleAspectFit
-        searchTextField.rightView = rightImageView
+        dictationButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        dictationButton.setImage(R.image.search_dictation(), for: .normal)
+        dictationButton.addTarget(self, action: #selector(hanleSpeedToText), for: .touchUpInside)
+        searchTextField.rightView =  dictationButton
         searchTextField.rightViewMode = .always
        
         self.lagTableView.backgroundColor = .black
@@ -111,6 +116,7 @@ class LagViewController: UIViewController {
     func setData(){
         if let countries = RequestApi.share.getFileJsonCountry() {
             self.countries = countries
+            self.dataCountries = countries
             self.country = countries.first
             selectedIndexPath = IndexPath(item: 0, section: 0)
             lagTableView.reloadData()
@@ -120,7 +126,42 @@ class LagViewController: UIViewController {
         }
     }
     
+    @objc func onChangeSearch(_ textField: UITextField){
+        if let searchText = textField.text{
+            if(searchText.isEmpty){
+                self.countries = self.dataCountries
+                self.lagTableView.reloadData()
+            }else{
+                let dataContriesSearch = self.dataCountries.filter{$0.name.contains(searchText)}
+                self.countries = dataContriesSearch
+                self.lagTableView.reloadData()
+            }
+        }
+    }
+    
+    @objc func hanleSpeedToText() {
+        speechManager.requestAuthorization()
+        if speechManager.audioEngine.isRunning {
+            speechManager.stopRecording()
+        } else {
+            do {
+                try speechManager.startRecording()
+            } catch {
+                print("Error starting recording: \(error)")
+            }
+        }
+    }
+    
+    func authorizationStatusChanged(isAuthorized: Bool) {
+        dictationButton.isEnabled = isAuthorized
+    }
+    
+    func didReceiveTranscription(transcription: String) {
+        searchTextField.text = transcription
+    }
 }
+
+
 
 extension LagViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -163,9 +204,7 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
                 newSelectedCell.setAction()
             }
         }
-      
         selectedIndexPath = indexPath
-        
     }
     
 }

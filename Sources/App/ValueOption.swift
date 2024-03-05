@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ValueOption {
+struct ValueOption: Codable {
     let id: String
     var option: Option
     

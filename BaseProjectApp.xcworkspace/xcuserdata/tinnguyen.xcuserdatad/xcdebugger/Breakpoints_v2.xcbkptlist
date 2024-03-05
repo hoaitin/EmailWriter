@@ -382,6 +382,21 @@
                   endingLineNumber = "75"
                   offsetFromSymbolStart = "633">
                </Location>
+               <Location
+                  uuid = "7D446199-FFB7-4D2E-A2B8-FB3CB02737C8 - 9621c870f8fac882"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.setupRx() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/LearnSwift/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "633">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -424,6 +439,21 @@
                   moduleName = "BaseProjectApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "633">
+               </Location>
+               <Location
+                  uuid = "646470EA-695A-4C56-B18B-90D4D96E1A98 - 9ccf7b377df8c510"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.setupRx() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/LearnSwift/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "59"
@@ -494,6 +524,21 @@
                   endingLineNumber = "38"
                   offsetFromSymbolStart = "202">
                </Location>
+               <Location
+                  uuid = "17172A59-BED7-469B-9460-6B01E0E9303C - fe7eef4309f23f6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerA.goToViewControllerB() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/LearnSwift/EmailWriter/Sources/App/Views/Test/ViewControllerA.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "202">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -536,6 +581,21 @@
                   moduleName = "BaseProjectApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinnguyen/Documents/GitHub/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "2172E782-E098-4E64-89FD-E72AD8495E73 - 75fa6601d57e3eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseProjectApp.ViewControllerB.backViewButton() -&gt; ()"
+                  moduleName = "BaseProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinnguyen/Documents/LearnSwift/EmailWriter/Sources/App/Views/Test/ViewControllerB.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"

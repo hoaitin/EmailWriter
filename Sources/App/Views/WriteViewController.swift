@@ -14,7 +14,7 @@ import GrowingTextView
 import Speech
 import RxSwift
 
-class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRecognizerDelegate, SpeechRecognitionDelegate {
+class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpeechRecognizerDelegate, SpeechRecognitionDelegate {
    
      private lazy var segmentedControl = UISegmentedControl(items: ["Write", "Reply"])
      private lazy var contentView = UIView()
@@ -25,14 +25,14 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
      private lazy var cameraButton = UIButton()
      private lazy var writeButton = UIButton()
      private lazy var micButton = UIButton()
+    
      private let speechManager = SpeechRecognitionManager()
      private let keyboardAlertView = ToolKeyBoardView(frame:CGRectMake(0,0,320,45))
      let cameraToTextManager = CameraToTextManager()
      var valueOptions:[ValueOption] = []
-    
-    
-    let disposeBag = DisposeBag()
-    let modelManager = ModelManagerImpl.shared
+     let maximumCharacterCount = 2500
+     let disposeBag = DisposeBag()
+     let modelManager = ModelManagerImpl.shared
     
     override func setupViews() {
         super.setupViews()
@@ -50,6 +50,8 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
         numberCharLabel.font = UIFont.appFont(weight: .regular , size: 13)
         
         closeButton.setImage(R.image.icon_close_write(), for: .normal)
+        closeButton.isHidden = true
+        closeButton.addTarget(self, action: #selector(handleClearText), for: .touchUpInside)
         
         textView.backgroundColor = .black
         textView.placeholder = "Example: \nHi Liam! Let s have a call today and discuss \nabout the progress of the project."
@@ -57,10 +59,10 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
         textView.textColor = .white
         textView.tintColor = .clear
         textView.trimWhiteSpaceWhenEndEditing = true
-        
         keyboardAlertView.backgroundColor = .black
+        keyboardAlertView.doneButton.addTarget(self, action: #selector(handleCloseKeyBoard), for: .touchUpInside)
         textView.inputAccessoryView = keyboardAlertView
-        textView.autocorrectionType = .no
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -87,7 +89,7 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
         writeButton.setImage(R.image.icon_feature_improve(), for: .normal)
         writeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         writeButton.backgroundColor = ConfigColor.green_main_app
-//        writeButton.addTarget(self, action: #selector(handleNextViewEmailResult), for: .touchUpInside)
+        writeButton.addTarget(self, action: #selector(handleNextViewEmailResult), for: .touchUpInside)
         
         addTabbarHeader()
         view.addSubview(segmentedControl)
@@ -124,7 +126,6 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
             $0.size.equalTo(CGSize(width: 20, height: 20))
         }
         
-        textView.backgroundColor = .orange
         textView.snp.makeConstraints{
             $0.top.equalTo(numberCharLabel.snp.bottom).offset(12)
             $0.width.equalToSuperview()
@@ -160,46 +161,101 @@ class WriteViewController: BaseViewController , UITextViewDelegate , SFSpeechRec
     }
     
     func setData(){
-        if let typeOption = RequestApi.share.getFileJsonTypeOptions(){
-            for item in typeOption {
-                if let option = item.data.first {
-                    valueOptions.append(ValueOption(id: item.id, option: option))
+        // Nếu có chuỗi JSON đã lưu trong UserDefaults
+        if let jsonString = UserDefaults.standard.string(forKey: ConfigKey.typeOptions),
+           let jsonData = jsonString.data(using: .utf8),
+           let valueOptions = try? JSONDecoder().decode([ValueOption].self, from: jsonData) {
+            // Sử dụng giá trị đã giải mã
+            self.valueOptions = valueOptions
+            writingOptionView.setData(itemLag: valueOptions[0].option,
+                                      itemType: valueOptions[1].option,
+                                      itemLength: valueOptions[2].option,
+                                      itemTone: valueOptions[3].option,
+                                      itemEmoji: valueOptions[4].option)
+        } else {
+            // Nếu không có chuỗi JSON trong UserDefaults, yêu cầu từ API và lưu vào UserDefaults
+            if let typeOption = RequestApi.share.getFileJsonTypeOptions() {
+                let valueOptions = typeOption.compactMap { item in
+                    return item.data.first.map { ValueOption(id: item.id, option: $0) }
                 }
+                if let jsonData = try? JSONEncoder().encode(valueOptions),
+                   let jsonString = String(data: jsonData, encoding: .utf8) {
+                    UserDefaults.standard.set(jsonString, forKey: ConfigKey.typeOptions)
+                }
+                writingOptionView.setData(itemLag: valueOptions[0].option,
+                                          itemType: valueOptions[1].option,
+                                          itemLength: valueOptions[2].option,
+                                          itemTone: valueOptions[3].option,
+                                          itemEmoji: valueOptions[4].option)
             }
-            writingOptionView.setData(itemLag: valueOptions[0].option, itemType: valueOptions[1].option, itemLength: valueOptions[2].option, itemTone: valueOptions[3].option, itemEmoji: valueOptions[4].option)
-            
         }
+
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
          if let userInfo = notification.userInfo,
             let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
              // Thay đổi kích thước của GrowingTextView khi bàn phím xuất hiện
-             textView.frame.size.height -= (keyboardSize.height)
+//             textView.frame.size.height -= (keyboardSize.height)
              keyboardAlertView.isHidden = false
              
              
          }
         
-//        contentView.snp.updateConstraints {
-//            $0.top.equalTo(segmentedControl.snp.bottom).offset(15)
-//            $0.leading.trailing.equalToSuperview().inset(16)
-//            $0.bottom.equalTo(writingOptionView.snp.top).inset(-200)
-//        }
+        contentView.snp.updateConstraints {
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(15)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(writingOptionView.snp.top).inset(-150)
+        }
      }
 
      @objc func keyboardWillHide(notification: NSNotification) {
          if let userInfo = notification.userInfo,
             let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                      // Thay đổi kích thước của GrowingTextView khi bàn phím biến mất
-             textView.frame.size.height += (keyboardSize.height )
              keyboardAlertView.isHidden = true
+         }
+         contentView.snp.updateConstraints {
+             $0.top.equalTo(segmentedControl.snp.bottom).offset(15)
+             $0.leading.trailing.equalToSuperview().inset(16)
+             $0.bottom.equalTo(writingOptionView.snp.top).inset(-20)
          }
      }
     
+    func textViewDidChange(_ textView: UITextView) {
+         
+           
+           if let text = textView.text {
+               if text.count > maximumCharacterCount {
+                 
+                   let trimmedText = String(text.prefix(maximumCharacterCount))
+                 
+                   textView.text = trimmedText
+                  
+               }else {
+                   numberCharLabel.text = "\(text.count)/\(maximumCharacterCount)"
+               }
+               
+               closeButton.isHidden = text.count == 0 ? true : false
+           }
+       }
+    
+    @objc func handleClearText(){
+        textView.text = ""
+        closeButton.isHidden = true
+        numberCharLabel.text = "0/\(maximumCharacterCount)"
+    }
+    
+    @objc func handleCloseKeyBoard(){
+        view.endEditing(true)
+    }
+    
     @objc func handleNextViewEmailResult() {
-        let emailVC = EmailResultViewController()
-        navigationController?.pushViewController(emailVC, animated: true)
+//        let emailVC = EmailResultViewController()
+//        navigationController?.pushViewController(emailVC, animated: true)
+        
+          let countryView = LagViewController()
+          presentPanModal(countryView)
     }
     
     @objc func handleViewOptions(){

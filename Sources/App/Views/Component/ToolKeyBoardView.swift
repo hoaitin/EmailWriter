@@ -9,8 +9,8 @@
 import UIKit
 import GrowingTextView
 class ToolKeyBoardView: UIView {
-    private lazy var typeText = GrowingTextView()
-    private lazy var doneButton = UIButton()
+    private lazy var typeLabel = UILabel()
+    public lazy var doneButton = UIButton()
     private lazy var generateButton = UIButton()
 
 
@@ -27,12 +27,11 @@ class ToolKeyBoardView: UIView {
     }
 
     private func setupViews() {
-        typeText.placeholder = "Type anything..."
-        typeText.font = UIFont.appFont(weight: .regular, size: 14)
-        typeText.textColor = .white
-        typeText.backgroundColor = .black
-        typeText.trimWhiteSpaceWhenEndEditing = true
-        typeText.autocorrectionType = .no
+        typeLabel.text = "Type anything..."
+        typeLabel.font = UIFont.appFont(weight: .regular, size: 14)
+        typeLabel.textColor = ConfigColor.gray_text_app
+        typeLabel.backgroundColor = .black
+        
         
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(.white, for: .normal)
@@ -49,15 +48,15 @@ class ToolKeyBoardView: UIView {
     }
     
     private func setConstraints(){
-        addSubview(typeText)
+        addSubview(typeLabel)
         addSubview(doneButton)
         addSubview(generateButton)
         
-        typeText.snp.makeConstraints{
+        typeLabel.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalTo(doneButton.snp.leading).offset(-10)
-            $0.height.equalTo(40)
+            $0.height.equalTo(20)
         }
         
         generateButton.snp.makeConstraints{
@@ -73,6 +72,8 @@ class ToolKeyBoardView: UIView {
         }
         
     }
+    
+  
 
 }
 
