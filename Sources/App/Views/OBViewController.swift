@@ -41,7 +41,9 @@ class OBViewController: UIViewController{
         layout.itemSize = CGSize(width: view.frame.width , height: view.frame.height)
         layout.scrollDirection = .horizontal
         self.obColectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        self.obColectionView.register(OBCollectionViewCell.self, forCellWithReuseIdentifier: OBCollectionViewCell.id)
+        self.obColectionView.register(OB1CollectionViewCell.self, forCellWithReuseIdentifier: OB1CollectionViewCell.id)
+        self.obColectionView.register(OB2CollectionViewCell.self, forCellWithReuseIdentifier: OB2CollectionViewCell.id)
+        self.obColectionView.register(OB3CollectionViewCell.self, forCellWithReuseIdentifier: OB3CollectionViewCell.id)
         self.obColectionView.isScrollEnabled = false
         self.obColectionView.contentMode = .scaleAspectFill
         self.obColectionView.backgroundColor = ConfigColor.main_bg
@@ -94,8 +96,18 @@ extension OBViewController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OBCollectionViewCell.id, for: indexPath) as? OBCollectionViewCell else {
+        if currentIndex == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OB2CollectionViewCell.id, for: indexPath) as? OB2CollectionViewCell else {
+                return .init()
+            }
+            return cell
+        } else if currentIndex == 2 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OB3CollectionViewCell.id, for: indexPath) as? OB3CollectionViewCell else {
+                return .init()
+            }
+            return cell
+        }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OB1CollectionViewCell.id, for: indexPath) as? OB1CollectionViewCell else {
                 return .init()
             }
             return cell

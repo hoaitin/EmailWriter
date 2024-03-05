@@ -30,6 +30,7 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
      private let keyboardAlertView = ToolKeyBoardView(frame:CGRectMake(0,0,320,45))
      let cameraToTextManager = CameraToTextManager()
      var valueOptions:[ValueOption] = []
+    var idOptions:[String: String] = [:]
      let maximumCharacterCount = 2500
      let disposeBag = DisposeBag()
      let modelManager = ModelManagerImpl.shared
@@ -162,7 +163,47 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
     }
     
     func setData(){
-        // Nếu có chuỗi JSON đã lưu trong UserDefaults
+        
+
+//        // Lưu mạng vào UserDefaults
+//        if let typeOptions = RequestApi.share.getFileJsonTypeOptions() {
+//            if let idOptions = UserDefaults.standard.dictionary(forKey: "idOptions") as? [String: String] {
+//                var selectedOptions: [Option] = []
+//                for (key, value) in idOptions {
+//                    if let typeOption = typeOptions.first(where: { $0.id == key }) {
+//                        if let option = typeOption.data.first(where: { $0.id == value }) {
+//                            selectedOptions.append(option)
+//                        }
+//                    }
+//                }
+//                
+//                writingOptionView.setData(itemLag: selectedOptions[0],
+//                                          itemType: selectedOptions[1],
+//                                          itemLength: selectedOptions[2],
+//                                          itemTone: selectedOptions[3],
+//                                          itemEmoji: selectedOptions[4])
+//                
+//            }else {
+//                if let lag = typeOptions[0].data.first,
+//                   let type = typeOptions[1].data.first,
+//                   let length = typeOptions[2].data.first,
+//                   let tone = typeOptions[3].data.first,
+//                   let emoji = typeOptions[4].data.first {
+//                    writingOptionView.setData(itemLag: lag,
+//                                              itemType: type,
+//                                              itemLength: length,
+//                                              itemTone: tone,
+//                                              itemEmoji: emoji)
+//                    self.idOptions = [typeOptions[0].id: lag.id,typeOptions[1].id: type.id,
+//                                      typeOptions[2].id: length.id,typeOptions[3].id: tone.id,
+//                                      typeOptions[4].id: emoji.id]
+//                    
+//                            UserDefaults.standard.set(self.idOptions, forKey: "idOptions")
+//                }
+//                
+//            }
+//        }
+        
         if let jsonString = UserDefaults.standard.string(forKey: ConfigKey.typeOptions),
            let jsonData = jsonString.data(using: .utf8),
            let valueOptions = try? JSONDecoder().decode([ValueOption].self, from: jsonData) {
@@ -195,7 +236,6 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
                                                 
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         let view = TypeOptionsViewController()
-        modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
         presentPanModal(view)
     }
     
@@ -268,17 +308,19 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
     
     @objc func handleViewOptions(){
         let view = TypeOptionsViewController()
-        modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
         presentPanModal(view)
     }
     
     @objc func hanleSpeedToText() {
         speechManager.requestAuthorization()
         if speechManager.audioEngine.isRunning {
+              micButton.setImage(R.image.icon_mic(), for: .normal)
             speechManager.stopRecording()
         } else {
             do {
+               
                 try speechManager.startRecording()
+                micButton.setImage(R.image.icon_stop(), for: .normal)
             } catch {
                 print("Error starting recording: \(error)")
             }
@@ -299,6 +341,7 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
     
     
     func authorizationStatusChanged(isAuthorized: Bool) {
+
         micButton.isEnabled = isAuthorized
     }
     
@@ -317,7 +360,7 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
             })
             .disposed(by: disposeBag)
         
-        modelManager.typeBehaviorRelayPublisher
+        modelManager.typePublishSubjectPublisher
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, value in

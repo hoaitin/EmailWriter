@@ -27,7 +27,10 @@ class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRe
     private var dataCountries:[Country] = []
     private var dictationButton = UIButton()
     private let speechManager = SpeechRecognitionManager()
- 
+    
+    var valueOptions: [ValueOption] = []
+    let modelManager = ModelManagerImpl.shared
+    let disposeBag = DisposeBag()
    
     override func viewDidLoad() {
         
@@ -119,12 +122,18 @@ class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRe
         if let countries = RequestApi.share.getFileJsonCountry() {
             self.countries = countries
             self.dataCountries = countries
-            self.country = countries.first
-            selectedIndexPath = IndexPath(item: 0, section: 0)
-            lagTableView.reloadData()
-            
-        }else {
-            
+            if let jsonString = UserDefaults.standard.string(forKey: ConfigKey.typeOptions),
+               let jsonData = jsonString.data(using: .utf8),
+               let valueOptions = try? JSONDecoder().decode([ValueOption].self, from: jsonData) {
+                self.valueOptions = valueOptions
+                print(self.valueOptions[0].id)
+                if let index = self.countries.firstIndex(where: { $0.name == self.valueOptions[0].option.id }) {
+                    self.selectedIndexPath = IndexPath(item: index, section: 0)
+                    self.country = countries[index]
+                    lagTableView.reloadData()
+                }
+            }
+           
         }
     }
     
@@ -180,7 +189,6 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let country = countries[indexPath.row]
-        
         cell.setData(name: "\(country.name) - \(country.language)", icon: country.flag)
         
         if indexPath.item == selectedIndexPath?.item {
@@ -205,7 +213,16 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
     
         if let newSelectedCell = tableView.cellForRow(at: indexPath) as? LagTableViewCell {
             if newSelectedCell.isSelected {
-                self.country = countries[indexPath.row]
+               let country = countries[indexPath.row]
+                self.country = country
+                self.valueOptions[0].option = Option(id: country.name, name: "\(country.name) - \(country.language)", image: country.flag)
+               
+                ModelManagerImpl.shared.typePublishSubjectPublisher.onNext(self.valueOptions)
+                if let jsonData = try? JSONEncoder().encode(valueOptions),
+                   let jsonString = String(data: jsonData, encoding: .utf8) {
+                    // Lưu JSON dưới dạng chuỗi trong UserDefaults
+                    UserDefaults.standard.set(jsonString, forKey: ConfigKey.typeOptions)
+                }
                 newSelectedCell.setAction()
             }
         }
