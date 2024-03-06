@@ -9,7 +9,7 @@
 import UIKit
 
 class EmailCollectionViewCell: UITableViewCell {
-    static let id = "SettingTableViewCell"
+    static let id = "EmailCollectionViewCell"
     public lazy var containerView = UIView()
     private lazy var nameLabel = UILabel()
     private lazy var titleLabel =  UILabel()

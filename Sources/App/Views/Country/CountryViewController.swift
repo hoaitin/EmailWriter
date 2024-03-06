@@ -15,7 +15,7 @@ import GrowingTextView
 import Speech
 import RxSwift
 
-class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRecognitionDelegate{
+class CountryViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRecognitionDelegate{
     private lazy var dragIndicator = UIView()
     private lazy var headerLabel = UILabel()
     private lazy var contentSearchView = UIView()
@@ -74,7 +74,7 @@ class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRe
        
         self.lagTableView.backgroundColor = .black
         self.lagTableView.separatorStyle = .none
-        self.lagTableView.register(LagTableViewCell.self, forCellReuseIdentifier: LagTableViewCell.id)
+        self.lagTableView.register(CountryTableViewCell.self, forCellReuseIdentifier: CountryTableViewCell.id)
         self.lagTableView.dataSource = self
         self.lagTableView.delegate = self
     }
@@ -177,14 +177,14 @@ class LagViewController: UIViewController , SFSpeechRecognizerDelegate, SpeechRe
 
 
 
-extension LagViewController: UITableViewDelegate, UITableViewDataSource {
+extension CountryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LagTableViewCell.id, for: indexPath) as? LagTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CountryTableViewCell.id, for: indexPath) as? CountryTableViewCell else {
             return .init()
         }
         
@@ -203,7 +203,7 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let previousSelectedIndexPath = selectedIndexPath {
             if let previousSelectedCell = tableView.cellForRow(at: previousSelectedIndexPath) as?
-                LagTableViewCell {
+                CountryTableViewCell {
                 if(!previousSelectedCell.isSelected){
                   previousSelectedCell.hiddenAction()
                 }
@@ -211,7 +211,7 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     
-        if let newSelectedCell = tableView.cellForRow(at: indexPath) as? LagTableViewCell {
+        if let newSelectedCell = tableView.cellForRow(at: indexPath) as? CountryTableViewCell {
             if newSelectedCell.isSelected {
                let country = countries[indexPath.row]
                 self.country = country
@@ -235,7 +235,7 @@ extension LagViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension LagViewController: PanModalPresentable {
+extension CountryViewController: PanModalPresentable {
     
     var panScrollable: UIScrollView? {
         return nil // Trả về UIScrollView nếu bạn muốn cho phép cuộn khi modal mở rộng

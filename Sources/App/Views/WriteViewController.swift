@@ -299,11 +299,9 @@ class WriteViewController: BaseViewController , GrowingTextViewDelegate , SFSpee
     }
     
     @objc func handleNextViewEmailResult() {
-//        let emailVC = EmailResultViewController()
-//        navigationController?.pushViewController(emailVC, animated: true)
+        let emailVC = EmailResultViewController()
+        navigationController?.pushViewController(emailVC, animated: true)
         
-          let countryView = LagViewController()
-          presentPanModal(countryView)
     }
     
     @objc func handleViewOptions(){

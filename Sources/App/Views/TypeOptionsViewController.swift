@@ -137,7 +137,7 @@ class TypeOptionsViewController: UIViewController, CellDelegate {
     }
     
     func presentPanModal() {
-        let countryView = LagViewController()
+        let countryView = CountryViewController()
         presentPanModal(countryView)
     }
  

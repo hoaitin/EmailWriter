@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LagTableViewCell: UITableViewCell {
-    static let id = "LagTableViewCell"
+class CountryTableViewCell: UITableViewCell {
+    static let id = "CountryTableViewCell"
     private lazy var titleLabel = UILabel()
     private lazy var iconLabel = UILabel()
     private lazy var iconCheckImage = UIImageView()
