@@ -42,11 +42,28 @@ class OptionsTableViewCell: UITableViewCell {
     func setData(typeOption: TypeOptions){
         titleLabel.text = typeOption.name
         self.typeOption = typeOption
-        
+        self.options = typeOption.data
         if typeOption.icon  != "" {
             iconImage.image = UIImage(named: typeOption.icon)
         }
-        options = typeOption.data
+        
+        if let jsonString = UserDefaults.standard.string(forKey: ConfigKey.typeOptions),
+           let jsonData = jsonString.data(using: .utf8),
+           let valueOptions = try? JSONDecoder().decode([ValueOption].self, from: jsonData) {
+            self.valueOptions = valueOptions
+            if typeOption.id == "output_language" {
+                self.options = [valueOptions[0].option]
+                self.option =   valueOptions[0].option
+                self.selectedIndexPath = IndexPath(item: 0, section: 0)
+            }  else {
+                if let index = self.valueOptions.firstIndex(where: { $0.id == self.typeOption?.id }) {
+                    if let indexPath = self.options.firstIndex(where: { $0.id == self.valueOptions[index].option.id }) {
+                        self.selectedIndexPath = IndexPath(item: indexPath, section: 0)
+                    }
+                }
+            }
+        }
+      
         optionsCollectionView.reloadData()
         setUpRx()
        
@@ -69,6 +86,7 @@ class OptionsTableViewCell: UITableViewCell {
         self.optionsCollectionView = UICollectionView(frame: contentView.frame, collectionViewLayout: layout)
         self.optionsCollectionView.backgroundColor = .black
         self.optionsCollectionView.register(OptionCollectionViewCell.self, forCellWithReuseIdentifier: OptionCollectionViewCell.id)
+        self.optionsCollectionView.register(OptionCountryCollectionViewCell.self, forCellWithReuseIdentifier: OptionCountryCollectionViewCell.id)
         self.optionsCollectionView.showsHorizontalScrollIndicator = false
         self.optionsCollectionView.dataSource = self
         self.optionsCollectionView.delegate = self
@@ -106,21 +124,18 @@ class OptionsTableViewCell: UITableViewCell {
     
     }
     private func setUpRx() {
-        modelManager.typeBehaviorRelayPublisher
+        modelManager.typePublishSubjectPublisher
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { owner, value in
                 if value.count > 0 {
-                    self.valueOptions = value
-                    
-                    if let index = owner.valueOptions.firstIndex(where: { $0.id == owner.typeOption?.id }) {
-                        owner.option = owner.valueOptions[index].option
-                        if let indexPath = owner.options.firstIndex(where: { $0.id == owner.valueOptions[index].option.id }) {
-                            owner.selectedIndexPath = IndexPath(item: indexPath, section: 0)
-                            owner.optionsCollectionView.reloadData()
-                        }
+                    owner.valueOptions = value
+                    if owner.typeOption?.id == "output_language" {
+                        owner.options = [ owner.valueOptions[0].option]
+                        owner.option =    owner.valueOptions[0].option
+                        owner.optionsCollectionView.reloadData()
+                      
                     }
-
                 }
                
             })
@@ -136,9 +151,18 @@ extension OptionsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if typeOption?.id == "output_language"  {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OptionCountryCollectionViewCell.id, for: indexPath) as? OptionCountryCollectionViewCell else {
+                        return .init()
+                }
+            let item = options[indexPath.row]
+            cell.setData(icon: item.image, name: item.name)
+            return cell
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OptionCollectionViewCell.id, for: indexPath) as? OptionCollectionViewCell else {
                     return .init()
-                }
+            }
                 
         let item = options[indexPath.row]
         cell.setData(icon: item.image, name: item.name)
@@ -152,7 +176,7 @@ extension OptionsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if typeOption?.id == "output language"  {
+        if typeOption?.id == "output_language"  {
              delegate?.presentPanModal()
             
         }else {
@@ -170,7 +194,7 @@ extension OptionsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
                     self.option = option
                     if let index = valueOptions.firstIndex(where: { $0.id == typeOption?.id }) {
                         self.valueOptions[index].option = option
-                        modelManager.typeBehaviorRelayPublisher.accept(valueOptions)
+                        modelManager.typePublishSubjectPublisher.onNext(valueOptions)
                         if let jsonData = try? JSONEncoder().encode(valueOptions),
                            let jsonString = String(data: jsonData, encoding: .utf8) {
                             // Lưu JSON dưới dạng chuỗi trong UserDefaults

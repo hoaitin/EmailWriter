@@ -41,7 +41,7 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 110 images.
+  /// This `_R.image` struct is generated, and contains static references to 117 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -117,8 +117,17 @@ struct _R {
     /// Image `icon4_DS2`.
     var icon4_DS2: RswiftResources.ImageResource { .init(name: "icon4_DS2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `icon_app_test`.
-    var icon_app_test: RswiftResources.ImageResource { .init(name: "icon_app_test", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `icon_app_genie`.
+    var icon_app_genie: RswiftResources.ImageResource { .init(name: "icon_app_genie", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `icon_app_interior`.
+    var icon_app_interior: RswiftResources.ImageResource { .init(name: "icon_app_interior", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `icon_app_kai`.
+    var icon_app_kai: RswiftResources.ImageResource { .init(name: "icon_app_kai", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `icon_app_logo`.
+    var icon_app_logo: RswiftResources.ImageResource { .init(name: "icon_app_logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `icon_best_offer`.
     var icon_best_offer: RswiftResources.ImageResource { .init(name: "icon_best_offer", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -261,6 +270,9 @@ struct _R {
     /// Image `icon_star`.
     var icon_star: RswiftResources.ImageResource { .init(name: "icon_star", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `icon_stop`.
+    var icon_stop: RswiftResources.ImageResource { .init(name: "icon_stop", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `icon_three_dots`.
     var icon_three_dots: RswiftResources.ImageResource { .init(name: "icon_three_dots", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -290,6 +302,15 @@ struct _R {
 
     /// Image `image_categories`.
     var image_categories: RswiftResources.ImageResource { .init(name: "image_categories", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `image_ob_1`.
+    var image_ob_1: RswiftResources.ImageResource { .init(name: "image_ob_1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `image_ob_2`.
+    var image_ob_2: RswiftResources.ImageResource { .init(name: "image_ob_2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `image_ob_3`.
+    var image_ob_3: RswiftResources.ImageResource { .init(name: "image_ob_3", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `image_premium`.
     var image_premium: RswiftResources.ImageResource { .init(name: "image_premium", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -411,7 +432,7 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 15 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 16 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
@@ -439,6 +460,9 @@ struct _R {
     /// Resource file `SF-Pro-Text-Semibold.ttf`.
     var sfProTextSemiboldTtf: RswiftResources.FileResource { .init(name: "SF-Pro-Text-Semibold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
 
+    /// Resource file `abouts.json`.
+    var aboutsJson: RswiftResources.FileResource { .init(name: "abouts", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
+
     /// Resource file `app_icon_1.png`.
     var app_icon_1Png: RswiftResources.FileResource { .init(name: "app_icon_1", pathExtension: "png", bundle: bundle, locale: LocaleReference.none) }
 
@@ -451,11 +475,11 @@ struct _R {
     /// Resource file `country.json`.
     var countryJson: RswiftResources.FileResource { .init(name: "country", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
+    /// Resource file `our_app.json`.
+    var our_appJson: RswiftResources.FileResource { .init(name: "our_app", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
+
     /// Resource file `settings.json`.
     var settingsJson: RswiftResources.FileResource { .init(name: "settings", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
-
-    /// Resource file `test.json`.
-    var testJson: RswiftResources.FileResource { .init(name: "test", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `typeOptions.json`.
     var typeOptionsJson: RswiftResources.FileResource { .init(name: "typeOptions", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }

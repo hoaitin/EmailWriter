@@ -1,5 +1,10 @@
 [
     {
+        "name": "English",
+        "language": "English",
+        "flag": "🇺🇸"
+    },
+    {
         "name": "Afghanistan",
         "language": "Pashto",
         "flag": "🇦🇫"

@@ -15,8 +15,8 @@ final class ModelManagerImpl {
         .init(value: "Init value")
     }()
     
-    let typeBehaviorRelayPublisher: BehaviorRelay<[ValueOption]> = {
-        .init(value: [])
+    let typePublishSubjectPublisher: PublishSubject<[ValueOption]> = {
+        .init()
     }()
     
 }

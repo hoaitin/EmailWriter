@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class WritingOptionView: UIView {
     private lazy var headerLabel = UILabel()
-    private lazy var iconContentImage = UIImageView()
+    private lazy var iconContentImage = UILabel()
     private lazy var contentLabel = UILabel()
     private lazy var onOffItemView = ItemTypeOption()
     private lazy var typeItemView = ItemTypeOption()
@@ -40,9 +40,6 @@ class WritingOptionView: UIView {
         headerLabel.textColor = .white
         headerLabel.font = UIFont.appFont(weight: .medium, size: 16)
         
-        iconContentImage.contentMode = .scaleAspectFill
-     
-        
         contentLabel.font = UIFont.appFont(weight: .medium, size: 12)
         contentLabel.textColor = ConfigColor.gray_text_app
        
@@ -54,7 +51,7 @@ class WritingOptionView: UIView {
     }
     
     func setData(itemLag: Option, itemType: Option, itemLength: Option, itemTone: Option, itemEmoji: Option){
-        iconContentImage.image = UIImage(named:  itemLag.image)
+        iconContentImage.text = itemLag.image
         contentLabel.text = itemLag.name
         onOffItemView.setData(icon: "icon_on_off", text: "On/Off")
         typeItemView.setData(icon: itemType.image, text: itemType.name)

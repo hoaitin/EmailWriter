@@ -8,8 +8,9 @@
 
 import UIKit
 
-class OBCollectionViewCell: UICollectionViewCell {
-    static var id = "OBCollectionViewCell"
+class OB1CollectionViewCell: UICollectionViewCell {
+    static var id = "OB1CollectionViewCell"
+    private lazy var backgroundImage = UIImageView()
     private lazy var titleLabel = UILabel()
  
     
@@ -29,7 +30,10 @@ class OBCollectionViewCell: UICollectionViewCell {
     func setUpView(){
         contentView.backgroundColor = .black
         
-        titleLabel.text = "Learn \n with example"
+        backgroundImage.image = R.image.image_ob_1()
+        backgroundImage.contentMode = .scaleAspectFill
+        
+        titleLabel.text = "Compose emails in \njust a few words"
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
@@ -38,7 +42,14 @@ class OBCollectionViewCell: UICollectionViewCell {
     }
     
     func setUpConstraints(){
+        addSubview(backgroundImage)
         addSubview(titleLabel)
+        
+        backgroundImage.snp.makeConstraints{
+            $0.top.equalToSuperview().inset(100)
+            $0.trailing.leading.equalToSuperview()
+            $0.height.equalTo(500)
+        }
         
         titleLabel.snp.makeConstraints{
             $0.leading.trailing.equalToSuperview().inset(16)
